@@ -1,5 +1,7 @@
 FROM alpine:edge
 
+LABEL maintainer="lburke@labprogramming.net"
+
 # Add extra repositories
 RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories; \
     echo 'http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories; \
@@ -18,8 +20,8 @@ RUN apk add --no-cache \
     git \
     gmp-dev \
     lcov \
+    openssl \
     texlive-full \
-    texlive-xetex \
     unifont \
     valgrind \
     vim \
@@ -31,6 +33,8 @@ RUN ln -s /usr/bin/mktexlsr /usr/bin/mktexlsr.pl
 # Bootstrap GPRBuild
 RUN git clone https://github.com/AdaCore/xmlada.git; \
     git clone https://github.com/AdaCore/gprbuild.git; \
-    cd gprbuild; ./bootstrap.sh --with-xmlada=../xmlada
+    cd gprbuild; ./bootstrap.sh --with-xmlada=../xmlada; \
+    cd ..; \
+    rm -rf xmlada gprbuild
 
 RUN adduser -D mola
