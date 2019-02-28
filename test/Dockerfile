@@ -7,4 +7,5 @@ RUN apk add --no-cache \
     colordiff \
     gawk \
     lcov \
+    ncurses \
     valgrind

@@ -10,6 +10,7 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/testing' >> /etc/apk/reposit
 # System setup
 RUN apk add --no-cache \
     build-base \
+    coreutils \
     curl-dev \
     gcc-gnat \
     git \
