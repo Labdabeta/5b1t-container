@@ -6,6 +6,8 @@ LABEL maintainer="lburke@labprogramming.net"
 RUN apk add --no-cache \
     colordiff \
     gawk \
+    jq \
     lcov \
+    moreutils \
     ncurses \
     valgrind
